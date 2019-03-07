@@ -21,7 +21,7 @@ class Step2Configuration {
 	@Bean
 	@StepScope // <1>
 	FlatFileItemReader<Person> fileReader(
-			@Value("file://#{jobParameters['input']}") Resource in) // <2>
+			@Value("file:#{jobParameters['input']}") Resource in) // <2>
 			throws Exception {
 
 		// <3>

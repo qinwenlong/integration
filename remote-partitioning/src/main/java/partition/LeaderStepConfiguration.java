@@ -10,6 +10,8 @@ import org.springframework.batch.repeat.RepeatStatus;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.task.SimpleAsyncTaskExecutor;
+import org.springframework.core.task.TaskExecutor;
 import org.springframework.integration.core.MessagingTemplate;
 import org.springframework.jdbc.core.JdbcOperations;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -40,9 +42,10 @@ class LeaderStepConfiguration {
 		return sbf.get("partitionStep")
 				.partitioner(workerStep.getName(), p)
 				.partitionHandler(ph)
+				//.taskExecutor(taskExecutor())
 				.build();
 	}
-
+	
 	// <3>
 	@Bean
 	MessageChannelPartitionHandler partitionHandler(

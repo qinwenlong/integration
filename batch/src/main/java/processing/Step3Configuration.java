@@ -34,7 +34,7 @@ class Step3Configuration {
 	@Bean
 	@StepScope
 	FlatFileItemWriter<Map<Integer, Integer>> fileWriter(
-			@Value("file://#{jobParameters['output']}") Resource out) {
+			@Value("file:#{jobParameters['output']}") Resource out) {
 
 		DelimitedLineAggregator<Map<Integer, Integer>> aggregator =
 				new DelimitedLineAggregator<Map<Integer, Integer>>() {

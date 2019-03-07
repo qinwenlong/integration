@@ -1,0 +1,13 @@
+partition\PartitionApplication.class
+partition\Profiles.class
+partition\WorkerChannels.class
+partition\WorkerConfiguration.class
+partition\WorkerChannels$Worker.class
+partition\IdRangePartitioner.class
+partition\PartitionRestController.class
+partition\LeaderChannels.class
+partition\LeaderChannels$Leader.class
+partition\WorkerStepConfiguration.class
+partition\JobConfiguration.class
+partition\Person.class
+partition\LeaderStepConfiguration.class

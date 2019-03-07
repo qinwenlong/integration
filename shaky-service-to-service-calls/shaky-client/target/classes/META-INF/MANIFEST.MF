@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Implementation-Title: integration/shaky-service-to-service-calls/shaky
+ -client
+Implementation-Version: 1.0.0-SNAPSHOT
+Built-By: wenlong.qin
+Implementation-Vendor-Id: cnj
+Build-Jdk: 1.8.0_91
+Implementation-URL: http://projects.spring.io/spring-boot/parent/integ
+ ration/shaky-service-to-service-calls/shaky-client/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+

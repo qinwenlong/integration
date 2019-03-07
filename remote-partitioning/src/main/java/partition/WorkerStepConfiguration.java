@@ -11,6 +11,8 @@ import org.springframework.batch.item.database.support.MySqlPagingQueryProvider;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.task.SimpleAsyncTaskExecutor;
+import org.springframework.core.task.TaskExecutor;
 
 import javax.sql.DataSource;
 import java.util.Collections;
@@ -39,6 +41,7 @@ class WorkerStepConfiguration {
 		JdbcPagingItemReader<Person> reader = new JdbcPagingItemReader<>();
 		reader.setDataSource(dataSource);
 		reader.setFetchSize(this.chunk);
+		reader.setPageSize(1000);
 		reader.setQueryProvider(queryProvider);
 		reader.setRowMapper((rs, i) -> new Person(
 				rs.getInt("id"),
@@ -66,6 +69,11 @@ class WorkerStepConfiguration {
 				.<Person, Person>chunk(this.chunk)
 				.reader(reader(null, null, null))
 				.writer(writer(null))
+				//.taskExecutor(taskExecutor())
 				.build();
+	}
+	@Bean
+	public TaskExecutor taskExecutor(){
+	   return new SimpleAsyncTaskExecutor("spring_batch");
 	}
 }
